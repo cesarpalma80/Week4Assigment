@@ -212,7 +212,7 @@ extension ViewController: CLLocationManagerDelegate {
 					print("🚴🏼‍♀️Total distance so far: \(self.distance) meters |📍Number of points: \(pointsToMark.count)")
 				}
 			} else {
-				// Managing when device is looking for a location
+				// Managing when device is looking for a location outside of the horizontalAccuracy
 			}
 			setRegionFor(location: location)
 		}
