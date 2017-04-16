@@ -3,7 +3,7 @@
 //  BikeRide
 //
 //  Created by Cesar on 13/04/17.
-//  Copyright © 2017 Metalbytes. All rights reserved.
+//  Copyright © 2017. All rights reserved.
 //
 
 import UIKit

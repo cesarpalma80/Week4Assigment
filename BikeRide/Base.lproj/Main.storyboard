@@ -1,14 +1,19 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BikeRide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +21,69 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EPj-gb-vC8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ax3-se-1KP"/>
+                                </connections>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvF-xy-lCL">
+                                <rect key="frame" x="34" y="599" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.019607843137254902" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="rideButton"/>
+                                <connections>
+                                    <action selector="startRideButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d71-Y7-6Ez"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="LLx-TA-WFI">
+                                <rect key="frame" x="81.5" y="20" width="212" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satellite"/>
+                                    <segment title="Hybrid"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="KVW-PD-ZUU"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E2M-Pc-kaG">
+                                <rect key="frame" x="291" y="579" width="48" height="48"/>
+                                <state key="normal" image="ios-navigate-outline"/>
+                                <state key="highlighted" image="ios-navigate"/>
+                                <connections>
+                                    <action selector="showUserLocationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6TL-8o-LkQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EPj-gb-vC8" firstAttribute="top" secondItem="LLx-TA-WFI" secondAttribute="bottom" constant="-48" id="8Eh-S6-Bwx"/>
+                            <constraint firstAttribute="trailing" secondItem="EPj-gb-vC8" secondAttribute="trailing" id="ENz-y0-UJD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="E2M-Pc-kaG" secondAttribute="bottom" constant="40" id="HSa-EV-fng"/>
+                            <constraint firstItem="LLx-TA-WFI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OPE-YV-wwL"/>
+                            <constraint firstItem="EPj-gb-vC8" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WAl-oA-E2c"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="E2M-Pc-kaG" secondAttribute="trailing" constant="20" id="hLL-9b-m9b"/>
+                            <constraint firstItem="EPj-gb-vC8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vIC-LG-BcZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EPj-gb-vC8" secondAttribute="bottom" id="zYz-FW-5JA"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="EPj-gb-vC8" id="DPt-MY-yV6"/>
+                        <outlet property="rideButton" destination="lvF-xy-lCL" id="b1m-qI-6iO"/>
+                        <outlet property="segmentedControl" destination="LLx-TA-WFI" id="3bB-wd-bgY"/>
+                        <outlet property="showUserButton" destination="E2M-Pc-kaG" id="F9R-HG-K0Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-258.39999999999998" y="148.87556221889056"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ios-navigate" width="48" height="48"/>
+        <image name="ios-navigate-outline" width="48" height="48"/>
+    </resources>
 </document>

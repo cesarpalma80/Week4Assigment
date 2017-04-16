@@ -98,6 +98,11 @@
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = VPK45GNGRS;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -304,6 +309,7 @@
 				9148DD141EA08B8400F2A995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
