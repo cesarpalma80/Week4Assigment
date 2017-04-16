@@ -49,7 +49,7 @@ final class ViewController: UIViewController {
 		mapView.delegate = self
 		mapView.showsUserLocation =  true
 		mapView.mapType = MKMapType(rawValue: UInt(segmentedControl.selectedSegmentIndex))!
-		mapView.userTrackingMode = MKUserTrackingMode(rawValue: 1)!
+		mapView.userTrackingMode = .follow
 	}
 	
 	// MARK: - IBActions
@@ -93,7 +93,7 @@ final class ViewController: UIViewController {
 	@IBAction func showUserLocationPressed(_ sender: UIButton) {
 		mapView.showsUserLocation =  true
 		mapView.mapType = MKMapType(rawValue: UInt(segmentedControl.selectedSegmentIndex))!
-		mapView.userTrackingMode = MKUserTrackingMode(rawValue: 1)!
+		mapView.userTrackingMode = .follow
 	}
 	
 	@IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
