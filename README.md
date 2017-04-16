@@ -1,5 +1,6 @@
-# Week4Assigment
+# Week4Assignment
 Bike Ride es una app para ser calificada en la cuarta semana del Curso: Interactuando con el hardware del dispositivo iOS de Coursera.
+![alt text](https://github.com/cesarpalma80/Week4Assigment/blob/master/icons/mockup.jpg "Mockup")
 
 Para probar el app en el simulador:
 1. Descarga el projecto 
