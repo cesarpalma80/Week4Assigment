@@ -101,27 +101,22 @@ final class ViewController: UIViewController {
 		switch sender.selectedSegmentIndex {
 		case 0:
 			print("Standard Map selected")
-			mapView.mapType = MKMapType(rawValue: 0)!
+			mapView.mapType = .standard
 			segmentedControl.tintColor = view.tintColor
 			rideButton.tintColor = view.tintColor
 			showUserButton.tintColor = view.tintColor
-			mapView.reloadInputViews()
-			
 		case 1:
 			print("Satellite Map selected")
-			mapView.mapType = MKMapType(rawValue: 1)!
+			mapView.mapType = .satellite
 			segmentedControl.tintColor = .white
 			rideButton.tintColor = .white
-			
 			showUserButton.tintColor = .white
-			mapView.reloadInputViews()
 		case 2:
 			print("Hybrid Map selected")
-			mapView.mapType = MKMapType(rawValue: 2)!
+			mapView.mapType = .hybrid
 			segmentedControl.tintColor = .white
 			rideButton.tintColor = .white
 			showUserButton.tintColor = .white
-			mapView.reloadInputViews()
 		default: break
 		}
 	}
@@ -135,7 +130,6 @@ final class ViewController: UIViewController {
 	
 	
 	func setRegionFor(location: CLLocation) {
-		
 		if pointsToMark.isEmpty { return }
 		
 		var coords = [CLLocationCoordinate2D]()
@@ -202,21 +196,16 @@ extension ViewController: CLLocationManagerDelegate {
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		
 		for location in locations {
-			
 			if location.horizontalAccuracy < 20 {
-				
 				if pointsToMark.isEmpty {
 					pointsToMark.append(locations.first!)
 					setRegionFor(location: locations.first!)
 					createPinFor(location: location)
 					print("🚴🏼‍♀️Total distance: \(distance) 📍Number of points: \(pointsToMark.count)")
-
 				}
 				
 				let fiftyMeters: CLLocationDistance = 50.0
-				
 				if location.distance(from: pointsToMark.last!) > fiftyMeters {
-					
 					distance += location.distance(from: pointsToMark.last!)
 					pointsToMark.append(location)
 					createPinFor(location: location)
