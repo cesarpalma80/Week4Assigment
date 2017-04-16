@@ -4,7 +4,7 @@ Bike Ride es una app para ser calificada en la cuarta semana del Curso: Interact
 Para probar el app en el simulador:
 1. Descarga el projecto 
 2. Abre el archivo BikeRide.xcodeproj en Xcode
-3. En el simulador de Xcode selecciona Debug >> Location >> City Bicycle Ride y corre el projecto.
+3. En el simulador de Xcode selecciona __Debug__ >> __Location__ >> __City Bicycle Ride__ y corre el projecto.
 
 ### Problemas conocidos
 1. Cuando se selecciona City Bike Run la lectura de la localización de usuario puede tardar en algunos casos.
