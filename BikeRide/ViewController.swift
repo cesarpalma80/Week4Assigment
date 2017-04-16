@@ -50,7 +50,6 @@ final class ViewController: UIViewController {
 		mapView.showsUserLocation =  true
 		mapView.mapType = MKMapType(rawValue: UInt(segmentedControl.selectedSegmentIndex))!
 		mapView.userTrackingMode = MKUserTrackingMode(rawValue: 1)!
-		
 	}
 	
 	// MARK: - IBActions
@@ -88,8 +87,6 @@ final class ViewController: UIViewController {
 			startLocationUpdates()
 			onRide = true
 		}
-		
-		
 	}
 	
 	
@@ -227,7 +224,6 @@ extension ViewController: CLLocationManagerDelegate {
 				}
 			} else {
 				// Managing when device is looking for a location
-				
 			}
 			setRegionFor(location: location)
 		}
@@ -236,7 +232,7 @@ extension ViewController: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
 		// Manage errors
-		locationManager.stopUpdatingLocation()
+		print("Error occured: \(error.localizedDescription).")
 	}
 	
 }
